@@ -2,13 +2,26 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     kotlin("plugin.serialization") version "1.9.10"
+    id("org.jetbrains.kotlin.native.cocoapods") // 👈 necesario para podspec
 }
 
 kotlin {
-    android()
+    androidTarget() // reemplazo de android() deprecado
+
     iosX64()
     iosArm64()
     iosSimulatorArm64()
+
+    cocoapods {
+        version = "1.0.0" // 👈 Obligatorio para generar el podspec
+        summary = "Módulo compartido entre iOS y Android"
+        homepage = "https://tu-web.com"
+        ios.deploymentTarget = "13.0"
+        podfile = project.file("../iosApp/Podfile")
+        framework {
+            baseName = "shared"
+        }
+    }
 
     sourceSets {
         val commonMain by getting {
@@ -28,13 +41,18 @@ kotlin {
         }
         val iosMain by creating {
             dependsOn(commonMain)
-            iosX64Main.dependsOn(this)
-            iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
-
             dependencies {
                 implementation("io.ktor:ktor-client-darwin:2.3.0")
             }
+        }
+        val iosX64Main by getting {
+            dependsOn(iosMain)
+        }
+        val iosArm64Main by getting {
+            dependsOn(iosMain)
+        }
+        val iosSimulatorArm64Main by getting {
+            dependsOn(iosMain)
         }
     }
 }
