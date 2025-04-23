@@ -1,8 +1,13 @@
 platform :ios, '13.0'
 
+# Define el workspace que se usará
+workspace 'iosApp.xcworkspace'
+
 project 'iosApp.xcodeproj'
 
 target 'iosApp' do
   use_frameworks!
+
+  # Asegúrate que la ruta al módulo compartido sea relativa al Podfile
   pod 'shared', :path => '../shared'
 end
