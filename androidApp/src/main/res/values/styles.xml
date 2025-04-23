@@ -1,0 +1,8 @@
+<resources>
+    <style name="Theme.ButtonLikePostmanApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Define aquí los atributos que desees para el tema -->
+        <item name="colorPrimary">@color/my_light_primary</item>
+        <item name="colorPrimaryVariant">@color/my_dark_primary</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+    </style>
+</resources>

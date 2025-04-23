@@ -1,0 +1,5 @@
+<resources>
+    <!-- Define tus colores personalizados -->
+    <color name="my_light_primary">#BB86FC</color> <!-- Ejemplo: morado claro -->
+    <color name="my_dark_primary">#3700B3</color>  <!-- Ejemplo: morado oscuro -->
+</resources>

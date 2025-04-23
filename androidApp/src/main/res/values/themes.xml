@@ -1,0 +1,7 @@
+<!-- res/values/themes.xml -->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.MyApp" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/my_light_primary</item>
+        <item name="colorPrimaryVariant">@color/my_dark_primary</item> <!-- Solo si estás usando Material 2 -->
+    </style>
+</resources>
