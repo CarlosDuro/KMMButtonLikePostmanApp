@@ -1,5 +1,7 @@
 platform :ios, '13.0'
 
+project 'iosApp.xcodeproj'
+
 target 'iosApp' do
   use_frameworks!
   pod 'shared', :path => '../shared'
