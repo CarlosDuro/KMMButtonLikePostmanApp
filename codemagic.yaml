@@ -9,7 +9,7 @@ workflows:
     scripts:
       - name: Install CocoaPods
         script: |
-          cd iosApp/iosApp
+          cd iosApp/
           pod install
       - name: Build IPA
         script: |
