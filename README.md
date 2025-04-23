@@ -7,15 +7,9 @@
 - Android
 - iOS (SwiftUI + CocoaPods + Xcode)
 
-## 📦 Estructura del Proyecto
-
-```plaintext
-KMMButtonLikePostmanApp/
-├── androidApp/     → Aplicación Android (Jetpack Compose + OkHttp)
-├── iosApp/         → Aplicación iOS (SwiftUI + integración vía CocoaPods)
-├── shared/         → Módulo compartido (Kotlin Multiplatform + Ktor)
-
 # Proyecto de Integración KMM
+
+## 📦 Estructura del Proyecto
 
 ## 🔧 Tecnologías Usadas
 
@@ -32,3 +26,13 @@ KMMButtonLikePostmanApp/
 - Inicio y cierre de reportes automáticos en IoT
 - Envío de datos (ubicación, entidades) a ambos servicios
 - Modularizado para pruebas y mantenimiento sencillo
+
+# 💡 Créditos
+Creado por Carlos D.
+Integrado con Codemagic CI/CD
+
+```plaintext
+KMMButtonLikePostmanApp/
+├── androidApp/     → Aplicación Android (Jetpack Compose + OkHttp)
+├── iosApp/         → Aplicación iOS (SwiftUI + integración vía CocoaPods)
+├── shared/         → Módulo compartido (Kotlin Multiplatform + Ktor)
