@@ -1,11 +1,14 @@
 workflows:
   ios-workflow:
     name: Build iOS App
+
     environment:
       vars:
-        XCODE_WORKSPACE: "iosApp.xcworkspace"
+        XCODE_WORKSPACE: "iosApp/iosApp.xcworkspace"
         XCODE_SCHEME: "iosApp"
+        EXPORT_OPTIONS: "iosApp/ExportOptions-Dev.plist" # 👈 Cambia a ExportOptions-AppStore.plist para App Store
       xcode: latest
+
     scripts:
       - name: Install CocoaPods
         script: |
@@ -14,15 +17,16 @@ workflows:
 
       - name: Build IPA
         script: |
-          xcodebuild -workspace iosApp/iosApp.xcworkspace \
-                     -scheme iosApp \
+          xcodebuild -workspace $XCODE_WORKSPACE \
+                     -scheme $XCODE_SCHEME \
                      -sdk iphoneos \
                      -configuration Release \
                      archive -archivePath $CM_BUILD_DIR/iosApp.xcarchive
 
           xcodebuild -exportArchive \
                      -archivePath $CM_BUILD_DIR/iosApp.xcarchive \
-                     -exportOptionsPlist iosApp/ExportOptions.plist \
+                     -exportOptionsPlist $EXPORT_OPTIONS \
                      -exportPath $CM_BUILD_DIR/build/ios
+
     artifacts:
       - build/ios/*.ipa
